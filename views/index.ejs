@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex List w. PokeAPI</title>
+
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <!-- STYLE SHEET -->
+    <link rel="stylesheet" href="./styles/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- FORM -->
+        <form class="form" method="post" action="/get-pokedex">
+            <label for="region">Choose A Region:</label>
+            <select name="region" id="region">
+                <option value="2">KANTO</option>
+                <option value="3">JOHTO</option>
+                <option value="4">HOENN</option>
+                <option value="5">SINNOH</option>
+                <option value="8">UNOVA</option>
+                <option value="12">KALOS</option>
+                <option value="16">ALOLA</option>
+                <option value="27">GALAR</option>
+                <option value="30">HISUI</option>
+                <option value="31">PALDEA</option>
+            </select>
+            <input class="submit-btn" type="submit" value="submit">
+        </form>
+
+        <% if(locals.pkdxData) { %>
+            <div class="container_pokedex">
+                <% for (let i = 0; i < pkdxData.length; i++) { %>
+                    <% const pokemonData = pkdxData[i]; %>
+                    <div class="pkmn-card">
+                        <!-- TOP -->
+                        <div class="pkmn-card_top">
+                            <div class="pkmn-card_top_circle">
+                                <p><%= pokemonData.entryNumber %></p>
+                            </div>
+                            <div class="pkmn-card_top_pkmn-name">
+                                <p><%= pokemonData.pkmnName %></p>
+                            </div>
+                            <div class="pkmn-card_top_sprite">
+                                <img class="pkmn-card_top_sprite_image" src=<%= pokemonData.pkmnSprite %> alt="">
+                            </div>
+                        </div>
+                        <!-- BOTTOM -->
+                        <div class="pkmn-card_bottom">
+                            <div class="pkmn-card_bottom_types">
+                                <!-- type 1 -->
+                                <p style=<%= pokemonData.typesColors[0] %> class="pkmn-card_bottom_types_each">
+                                <%= pokemonData.pkmnTypes[0] %>
+                                </p>
+                                <% if(pokemonData.pkmnTypes.length > 1) { %>
+                                    <!-- type 2 -->
+                                    <p style=<%= pokemonData.typesColors[1] %> class="pkmn-card_bottom_types_each">
+                                    <%= pokemonData.pkmnTypes[1] %>
+                                    </p>
+                                <% } %>
+                            </div>
+                            <div class="pkmn-card_bottom_info">
+                                <p>Weight: <%= pokemonData.pkmnWeight %></p>
+                                <p>Height: <%= pokemonData.pkmnHeight %></p>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+
+        <% } else if(locals.randomPkmn) { %>
+            <div class="container_pokedex">
+                <div class="pkmn-card">
+                    <!-- TOP -->
+                    <div class="pkmn-card_top">
+                        <div class="pkmn-card_top_circle">
+                            <p><%= randomPkmn.entryNumber %></p>
+                        </div>
+                        <div class="pkmn-card_top_pkmn-name">
+                            <p><%= randomPkmn.pkmnName %></p>
+                        </div>
+                        <div class="pkmn-card_top_sprite">
+                            <img class="pkmn-card_top_sprite_image" src=<%= randomPkmn.pkmnSprite %> alt="">
+                        </div>
+                    </div>
+                    <!-- BOTTOM -->
+                    <div class="pkmn-card_bottom">
+                        <div class="pkmn-card_bottom_types">
+                            <!-- type 1 -->
+                            <p style=<%= randomPkmn.typesColors[0] %> class="pkmn-card_bottom_types_each">
+                            <%= randomPkmn.pkmnTypes[0] %>
+                            </p>
+                            <% if(randomPkmn.pkmnTypes.length > 1) { %>
+                                <!-- type 2 -->
+                                <p style=<%= randomPkmn.typesColors[1] %> class="pkmn-card_bottom_types_each">
+                                <%= randomPkmn.pkmnTypes[1] %>
+                                </p>
+                            <% } %>
+                        </div>
+                        <div class="pkmn-card_bottom_info">
+                            <p>Weight: <%= randomPkmn.pkmnWeight %></p>
+                            <p>Height: <%= randomPkmn.pkmnHeight %></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <% } else { %>
+                <h3>Select a Pokemon Region to see its Pokedex and wait a few seconds...</h3>
+        <% } %>
+
+
+        <footer>
+            © 2023 <a href="https://osolaldev.github.io/Personal-Site-English/">Oda Solà López</a>. All rights reserved.
+        </footer>
+       
+    </div>
+    
+</body>
+
+</html>

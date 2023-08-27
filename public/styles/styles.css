@@ -1,0 +1,188 @@
+/* GENERAL */
+:root {
+    --silverColor: #B9B4C7;
+
+    --mainFont: 'Press Start 2P', cursive;
+}
+
+body {
+    margin: 0;
+    font-family: var(--mainFont);
+    background-color: #FFCB05;
+}
+
+p, h1, h2, h3 {
+    margin: 0;
+}
+
+p {
+    font-size: 0.8rem;
+}
+
+h1, h3 {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+
+/* SCROLLBAR */
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f17a;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #5555556f;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #23232376;
+  }
+
+
+/* FORM */
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+}
+
+.form label {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.form select {
+    text-align: center;
+    font-size: 2rem;
+    padding: 1.5rem;
+    font-family: var(--mainFont);
+    background-color: #ffd93f;
+}
+
+.submit-btn {
+    font-family: var(--mainFont);
+    text-transform: uppercase;
+    font-size: 2rem;
+    padding: 1rem;
+    border: 4px solid var(--silverColor);
+    background-color: transparent;
+}
+
+.submit-btn:hover {
+    background-color: rgba(0, 0, 0, 0.202);
+    cursor: pointer;
+}
+
+.container_pokedex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+/* CONTENT */
+.pkmn-card {
+    width: 300px;
+    height: 380px;
+    border: 1px solid var(--silverColor);
+    padding: 20px;
+    border-radius: 5px;
+    background-color: rgb(96, 96, 190);
+}
+
+/* TOP */
+.pkmn-card_top {
+    border: 2px solid var(--silverColor);
+    height: 75%;
+    position: relative;
+}
+
+.pkmn-card_top_circle {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border: 1px solid var(--silverColor);
+    background-color: var(--silverColor);
+    border-radius: 50%;
+    top: -10px;
+    left: -10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    font-weight: bold;
+}
+
+.pkmn-card_top_circle p {
+    font-size: 0.9rem;
+}
+
+.pkmn-card_top_pkmn-name {
+    /* border: 1px solid orange; */
+    padding: 10px;
+    padding-left: 50px;
+    border-bottom: 2px solid var(--silverColor);
+    text-transform: uppercase;
+}
+
+.pkmn-card_top_sprite {
+    /* border: 1px solid pink; */
+    height: calc(100% - 35px);
+    display: flex;
+    justify-content: center;
+}
+
+.pkmn-card_top_sprite_image {
+    height: 100%;
+}
+
+/* BOTTOM */
+.pkmn-card_bottom {
+    padding: 20px;
+}
+
+.pkmn-card_bottom_types {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+
+.pkmn-card_bottom_types_each {
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.pkmn-card_bottom_info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+footer {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+}
